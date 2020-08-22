@@ -1,9 +1,11 @@
 #---------------Git基本操作---------------
 
 ###本地首次创建：###
+
 git init
 git status
 git add .
+
 
 git commit -m "Directory structure updated"
 git commit -m "Error handling page added"
@@ -17,13 +19,13 @@ git push -u origin master
 
 
 ###变换环境创建：###
-**//需要先拉取代码**
+//需要先拉取代码
 git pull 
- **//添加代码**
+ //添加代码
 git add . 
-**//添加注释**
+//添加注释
 git commit -m ""   
-**//推送代码已经关联分支**
+//推送代码已经关联分支
 git push 
 git push -u origin master
 
