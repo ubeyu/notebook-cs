@@ -1,6 +1,6 @@
-#---------------Git基本操作---------------
+# ---------------Git基本操作---------------
 
-###本地首次创建：###
+### 本地首次创建：###
 
 git init
 git status
@@ -18,7 +18,7 @@ git push -u origin master
 
 
 
-###变换环境创建：###
+### 变换环境创建：###
 //需要先拉取代码
 git pull 
  //添加代码
@@ -31,7 +31,7 @@ git push -u origin master
 
 
 
-###官方：###
+### 官方：###
 echo "# why-home-font_end-Formatted" >> README.md
 git init
 git add README.md
