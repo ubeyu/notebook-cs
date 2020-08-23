@@ -13,7 +13,7 @@ git commit -m "Error handling page improved.Fragment (Thymeleaf) added,which is 
 
 git remote add origin https://github.com/wanghaoyang949/why-home-font_end-Formatted.git</br>
 git remote add origin git@github.com:wanghaoyang949/why_home.git</br>
-** 添加/更新
+添加/更新</br>
 git push -u origin master
 </br>
 
