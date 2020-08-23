@@ -23,9 +23,13 @@ SELECT * FROM home_blog;</br>
 **5.查看表结构：**</br>
 desc home_blog;</br>
 **6.home_user内插入一条记录：**</br>
-INSERT INTO home_user (id,avatar, create_time , email, nickname , password, type ,update_time ,user_name) VALUES (1,' https://images.unsplash.com/photo-1597098495323-fc5d2ac74f75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', '2020-08-22 10:55:55', '363057994@qq.com','winter','*******',1, '2009-06-08 11:00:00', 'why');</br>
+INSERT INTO home_user (id,avatar, create_time , email, nickname , password, type ,update_time ,username) VALUES (1,' https://images.unsplash.com/photo-1597098495323-fc5d2ac74f75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', '2020-08-22 10:55:55', '363057994@qq.com','winter','*******',1, '2020-08-23 20:16:00', 'why');</br>
+**home_user内更新一条记录：**</br>
+UPDATE home_user SET password='MD5*******' WHERE id=1;</br>
+
 **查询并观察结果:**</br>
 SELECT * FROM home_user;</br>
+
 
 
 
