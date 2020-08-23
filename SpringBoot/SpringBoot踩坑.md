@@ -32,7 +32,8 @@ public class WebConfig extends WebMvcConfigurationSupport{</br>
 #### springboot中控制器的String类return "" 和 return "redirect: " 的区别：</br>
 1.return "admin/blogs-afterLogin" 会自动跳转templates/下的user/blogs-afterLogin.html。</br>
 2.而 return "redirect: /admin"则会返回这controller， 然后重新查找requestmapping的参数。 如果这个controller没有一个@requestmapping(value="user")，那么就会报错。</br>
-因此， return+路径就是纯粹用于跳转页面。 而return+redirect就用于再次转向controller。</br>
+因此， return+路径就是纯粹用于跳转页面。 而return+redirect就用于再次转向controller。</br></br>
 
 
-#### @PostMapping("/login")注解的url，通过浏览器直接访问/admin/login会报error错误。
+#### @PostMapping("/login")注解的url，通过浏览器直接访问/admin/login会报error错误。</br></br>
+#### 拦截器在访问/admin/manage或/admin/publish时返回404页面，然后又突然好了，尚未找到原因。</br></br>
