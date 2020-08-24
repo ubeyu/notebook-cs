@@ -37,11 +37,11 @@ public class WebConfig extends WebMvcConfigurationSupport{</br>
 
 #### 2020/08/23. @PostMapping("/login")注解的url，通过浏览器直接访问/admin/login会报error错误。</br></br>
 #### 2020/08/23. 拦截器在访问/admin/manage或/admin/publish时返回404页面，然后又突然好了，尚未找到原因。</br></br>
-#### 2020/08/24. 关于SpringDataJpa中findOne()方法报错问题</br>
+#### 2020/08/24. 关于SpringDataJpa中findOne()方法报错问题:</br>
 问题由来：SpringDataJPA的1.11版本，可以使用findOne()方法根据id查询。同时：</br>
 findOne()：当我查询一个不存在的id数据时，返回的值是null；</br>
 getOne()：当我查询一个不存在的id数据时，直接抛出异常，因为它返回的是一个引用，简单点说就是一个代理对象。</br>
-所以说，如果想无论如何都有一个返回，那么就用findOne,否则使用getOne。</br></br>
+所以说，如果想无论如何都有一个返回，那么就用findOne,否则使用getOne。</br>
 2.x.x版本，findOne()方法报错，不能用来当作根据id查询了，</br>
 需改成成findById(id).get()来查询。</br>
 这是两个不同的版本，源码已经发生变化。</br></br>
