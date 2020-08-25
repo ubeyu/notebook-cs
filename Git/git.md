@@ -10,6 +10,7 @@ git add .</br>
 git commit -m "Directory structure updated"</br>
 git commit -m "Error handling page added"</br>
 git commit -m "Error handling page improved.Fragment (Thymeleaf) added,which is used to create a unified template"</br>
+git commit -m "Management of types is added"
 
 git remote add origin https://github.com/wanghaoyang949/why-home-font_end-Formatted.git</br>
 git remote add origin git@github.com:wanghaoyang949/why_home.git</br>
