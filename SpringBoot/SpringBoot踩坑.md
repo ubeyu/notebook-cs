@@ -52,19 +52,23 @@ getOne()：当我查询一个不存在的id数据时，直接抛出异常，因�
 
 #### 2020/08/26. 关于SpringBoot中RedirectAttributes和Model的理解:</br>
 ##### RedirectAttributes</br>
+```
 if(type_added == null){</br>
 attributes.addFlashAttribute("message","新增失败！");</br>
 }else{</br>
 attributes.addFlashAttribute("message","新增成功！");</br>
 }</br>
 return "redirect:/admin/typeManage";</br>
+```
 后端校验提示内容： 使用redirectAttributes，用于@PostMapping，当Post提交完成时，添加一个返回信息，然后重定向到指定页面，页面用${#strings.isEmpty(message)}接收，并显示提示。  </br>
 ##### Model</br>
+```
 @GetMapping("/typeManage/add")  </br>
 public String addTypePage(Model model) { </br>
 model.addAttribute("type", new Type());</br>
 return "admin/types-publish";</br>
 }</br>
+```
 后端校验提示内容： 使用model，用于GetMapping，当进入一个链接时增加一个新的type对象，然后将其返回到指定页面，该页面在后台存储这样一个对象，在提交时起作用。  </br>
 
 
