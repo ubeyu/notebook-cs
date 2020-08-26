@@ -48,7 +48,8 @@ getOne()：当我查询一个不存在的id数据时，直接抛出异常，因�
 
 #### 2020/08/26. 关于Spring中BeanUtils.copyProperties()方法:</br>
 将type属性复制到type_cur</br>
-```BeanUtils.copyProperties(tag,tag_cur);
+```
+BeanUtils.copyProperties(tag,tag_cur);
 ```
 #### 2020/08/26. 关于SpringBoot中RedirectAttributes和Model的理解:</br>
 ##### RedirectAttributes</br>
