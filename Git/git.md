@@ -25,7 +25,13 @@ git push -u origin master
 git pull </br>
 建立新文件夹 然后将代码文件覆盖</br>
 git pull origin master</br>
+
+若不想merge远程和本地修改，可以先创建新的分支：</br>
+$ git branch [name]</br>
+然后push</br>
+$ git push -u origin [name]</br>
 </br>
+
  //添加代码</br>
 git add .
 </br>
