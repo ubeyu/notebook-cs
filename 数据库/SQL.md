@@ -3,25 +3,38 @@
 
 ## MySQL常用指令
 
-**进入bin运行：**</br>
+**进入bin运行：**
+```
 mysql -u root -p
-</br>
-**删除指定数据库：**</br>
+```
+**删除指定数据库：**
+```
 drop database why_home_database;	
-</br>
-**添加指定数据库：**</br>
+```
+**添加指定数据库：**
+```
 create database why_home_database; 
-</br>
-**1.查看所有数据库：**</br>
-show databases;</br>
-**2.进入数据库：**</br>
-use why_home_database;</br>
-**3.查看当前库的表：**</br>
-show tables;</br>
-**4.查看表内容（若为空无法看）：**</br>
-SELECT * FROM home_blog;</br>
-**5.查看表结构：**</br>
-desc home_blog;</br>
+```
+**1.查看所有数据库：**
+```
+show databases;
+```
+**2.进入数据库：**
+```
+use why_home_database;
+```
+**3.查看当前库的表：**
+```
+show tables;
+```
+**4.查看表内容（若为空无法看）：**
+```
+SELECT * FROM home_blog;
+```
+**5.查看表结构：**
+```
+desc home_blog;
+```
 **6.home_user内插入一条记录：**</br>
 ```
 INSERT INTO home_user (id,avatar, create_time , email, nickname , password, type ,update_time ,username) VALUES (1,' https://images.unsplash.com/photo-1597098495323-fc5d2ac74f75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', '2020-08-22 10:55:55', '363057994@qq.com','winter','password',1, '2020-08-23 20:16:00', 'why');
@@ -35,8 +48,10 @@ UPDATE home_user SET password='MD5password' WHERE id=1;
 ```
 UPDATE home_user SET avatar='https://c-ssl.duitang.com/uploads/item/201802/27/20180227232445_umtpo.jpeg' WHERE id=1;
 ```
-**查询并观察结果:**</br>
-SELECT * FROM home_user;</br>
+**查询并观察结果:**
+```
+SELECT * FROM home_user;
+```
 
 
 
@@ -64,17 +79,19 @@ could not read a hi value - you need to populate the table: hibernate_sequence�
 
 ## 查询数据库运行状态的基本命令：</br>
 查询数据库连接</br>
-show full  processlist;</br>
-show status like '%Max_used_connections%';</br>
-show status like '%Threads_connected%';#当前连接数</br>
-show status like '%table_lock%';#表锁定</br>
-show status like 'innodb_row_lock%';#行锁定</br>
-show status like '%qcache%'; #查询缓存情况</br>
-show variables like "%query_cache%";</br>
-SHOW STATUS LIKE 'Qcache%';</br>
-show variables like "%binlog%";</br>
-show status like 'Aborted_clients';#由于客户没有正确关闭连接已经死掉，已经放弃的连接数量</br>
-show variables like '%max_connections%';//查看最大连接数量</br>
-show variables like '%timeout%';#查看超时时间</br>
-show variables like 'log_%'; #查看日志是否启动</br>
+```
+show full  processlist;
+show status like '%Max_used_connections%';
+show status like '%Threads_connected%';#当前连接数
+show status like '%table_lock%';#表锁定
+show status like 'innodb_row_lock%';#行锁定
+show status like '%qcache%'; #查询缓存情况
+show variables like "%query_cache%";
+SHOW STATUS LIKE 'Qcache%';
+show variables like "%binlog%";
+show status like 'Aborted_clients';#由于客户没有正确关闭连接已经死掉，已经放弃的连接数量
+show variables like '%max_connections%';//查看最大连接数量
+show variables like '%timeout%';#查看超时时间
+show variables like 'log_%'; #查看日志是否启动
+```
 
