@@ -39,7 +39,7 @@ desc home_blog;
 ```
 INSERT INTO home_user (id,avatar, create_time , email, nickname , password, type ,update_time ,username) VALUES (1,' https://images.unsplash.com/photo-1597098495323-fc5d2ac74f75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', '2020-08-22 10:55:55', '363057994@qq.com','winter','password',1, '2020-08-23 20:16:00', 'why');
 ```
-**home_user内更新一条记录：**</br>
+**7.home_user内更新一条记录：**</br>
 更新MD5密码：
 ```
 UPDATE home_user SET password='MD5password' WHERE id=1;
@@ -48,11 +48,11 @@ UPDATE home_user SET password='MD5password' WHERE id=1;
 ```
 UPDATE home_user SET avatar='https://c-ssl.duitang.com/uploads/item/201802/27/20180227232445_umtpo.jpeg' WHERE id=1;
 ```
-**查询并观察结果:**
+**8.查询并观察结果:**
 ```
 SELECT * FROM home_user;
 ```
-
+</br></br>
 
 
 
@@ -73,9 +73,9 @@ could not read a hi value - you need to populate the table: hibernate_sequence�
 
 **4.Blog_id属于外键，Parent_comment_id属于自关联的外。**</br>
 
-**在多对一关系中，多属性的那张表中应有1属性的id外键。**</br></br>
+**在多对一关系中，多属性的那张表中应有1属性的id外键。**
 
-
+</br></br>
 
 ## 查询数据库运行状态的基本命令：</br>
 查询数据库连接</br>
