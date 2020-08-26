@@ -22,7 +22,9 @@ git push -u origin master
 
 ### 变换环境创建：
 //需要先拉取代码</br>
-git pull 
+git pull </br>
+建立新文件夹 然后将代码文件覆盖</br>
+git pull origin master</br>
 </br>
  //添加代码</br>
 git add .
