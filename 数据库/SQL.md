@@ -23,10 +23,18 @@ SELECT * FROM home_blog;</br>
 **5.查看表结构：**</br>
 desc home_blog;</br>
 **6.home_user内插入一条记录：**</br>
-INSERT INTO home_user (id,avatar, create_time , email, nickname , password, type ,update_time ,username) VALUES (1,' https://images.unsplash.com/photo-1597098495323-fc5d2ac74f75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', '2020-08-22 10:55:55', '363057994@qq.com','winter','password',1, '2020-08-23 20:16:00', 'why');</br>
+```
+INSERT INTO home_user (id,avatar, create_time , email, nickname , password, type ,update_time ,username) VALUES (1,' https://images.unsplash.com/photo-1597098495323-fc5d2ac74f75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', '2020-08-22 10:55:55', '363057994@qq.com','winter','password',1, '2020-08-23 20:16:00', 'why');
+```
 **home_user内更新一条记录：**</br>
-UPDATE home_user SET password='MD5password' WHERE id=1;</br>
-
+更新MD5密码：
+```
+UPDATE home_user SET password='MD5password' WHERE id=1;
+```
+更新头像：
+```
+UPDATE home_user SET avatar='https://c-ssl.duitang.com/uploads/item/201802/27/20180227232445_umtpo.jpeg' WHERE id=1;
+```
 **查询并观察结果:**</br>
 SELECT * FROM home_user;</br>
 
