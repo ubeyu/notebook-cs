@@ -45,3 +45,9 @@ getOne()：当我查询一个不存在的id数据时，直接抛出异常，因�
 2.x.x版本，findOne()方法报错，不能用来当作根据id查询了，</br>
 需改成成findById(id).get()来查询。</br>
 这是两个不同的版本，源码已经发生变化。</br></br>
+
+#### 2020/08/26. 关于Spring中BeanUtils.copyProperties()方法:
+ /*--------将type属性复制到type_cur-----*/</br>
+        BeanUtils.copyProperties(tag,tag_cur);</br>
+
+       
