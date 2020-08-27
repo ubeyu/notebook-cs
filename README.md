@@ -8,6 +8,7 @@
 
 ## SpringBoot
 
-* [1.踩坑记录](SpringBoot/SpringBoot踩坑.md)
+* [1.SpringBoot踩坑记录](SpringBoot/SpringBoot踩坑.md)
+* [1.Thymeleaf踩坑记录](SpringBoot/Thymeleaf踩坑.md)
 
 
