@@ -50,7 +50,7 @@ git pull origin master  //需要先拉取代码
 cd            //到指定文件夹上级目录
 dir          //找到要删除的文件夹名
 git rm -r --cached Java_Map  //删除文件夹
-git commit -m '删除了Java_Map'  //提交Commit
+git commit -m ''entity' is changed to 'po''  //提交Commit
 git push -u origin master  //更新到在线仓库
 ```
 
