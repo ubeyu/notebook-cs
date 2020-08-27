@@ -25,3 +25,18 @@
     </td>
 </tr>
 ```
+
+#### 2020/08/27. 关于Thymeleaf中 点击按钮触发JS脚本 的使用：</br>
+ 使用1：（注意id中不用#）
+ ```
+  // 中间部分：
+<div id="table-container">不用#
+ // JS脚本：点击搜索按钮脚本
+<script>
+ $('#search-button').click(function () {
+   loadData();
+ });
+</script>
+
+
+ ```
