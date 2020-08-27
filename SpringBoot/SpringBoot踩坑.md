@@ -52,7 +52,7 @@ getOne()：当我查询一个不存在的id数据时，直接抛出异常，因�
 BeanUtils.copyProperties(tag,tag_cur);
 ```
 #### 2020/08/26. 关于SpringBoot中RedirectAttributes和Model的理解:</br>
-##### RedirectAttributes</br>
+##### RedirectAttributes
 ```
 if(type_added == null){
 	attributes.addFlashAttribute("message","新增失败！");
@@ -62,7 +62,7 @@ if(type_added == null){
 return "redirect:/admin/typeManage";
 ```
 后端校验提示内容： 使用redirectAttributes，用于@PostMapping，当Post提交完成时，添加一个返回信息，然后重定向到指定页面，页面用${#strings.isEmpty(message)}接收，并显示提示。  </br>
-##### Model</br>
+##### Model
 ```
 @GetMapping("/typeManage/add") 
 public String addTypePage(Model model) { 
@@ -72,4 +72,10 @@ public String addTypePage(Model model) {
 ```
 后端校验提示内容： 使用model，用于GetMapping，当进入一个链接时增加一个新的type对象，然后将其返回到指定页面，该页面在后台存储这样一个对象，在提交时起作用。  </br>
 
-
+#### 2020/08/27. IDEA连接MySQL数据库：Connection to @localhost failed. [08001] Could not create connection to database server.:</br>
+路径、账户、密码都没问题，则可能JDBC碰见的时区问题，解决：</br>
+在数据库路径后加：
+```
+jdbc:mysql://localhost:3306/why_home_database?serverTimezone=GMT
+?serverTimezone=GMT
+```
