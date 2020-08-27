@@ -1,6 +1,7 @@
 # ---------------SpringBoot踩坑记录---------------
 
 #### 2020/08/27. 关于Thymeleaf中 th:each 的使用：</br>
+ 使用1：</br>
 ```
  <div th:each="type:${types}" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div> 
  ```
