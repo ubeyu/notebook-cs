@@ -1,6 +1,17 @@
 # -------------数据库使用笔记---------------
-
-
+## MySQL环境安装踩坑
+```
+下载mysql-8.0.21-winx64.zip解压到指定文件夹，在cmd中cd到bin，运行mysql -u root -p：
+报错一：
+      由于找不到 MSVCP140.dll ，无法继续执行代码。
+      解决：安装下载 Microsoft Visual C++ 2015 Redistributable Update 3 环境
+      链接： https://www.microsoft.com/en-us/download/confirmation.aspx?id=53840
+报错二：
+      在安装  Microsoft Visual C++ 2015 Redistributable Update 3 时，报 "0x80070666 - 已安装这个产品的另外一个版本" 错误。
+      由于vc++运行库 2017 版和 2015 版的函数接口完全相同，2017就是2015版的修订版本，不需要安装2015版了。
+      所以：若要安装 2015，把 2017 的卸载了，再安装 2015 版。
+      
+```
 ## MySQL常用指令
 
 **进入bin运行：**
