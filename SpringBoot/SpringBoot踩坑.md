@@ -168,8 +168,18 @@ Blog中tagsToIds方法 正确博客修改代码：
 		}
 	    }    
 ```
-#### 2020/09/02. 关于 Invalid property of bean class Bean property is not readable or has an invalid getter method 解决:</br>
+#### 2020/09/02. 关于 Invalid property of bean class Bean property is not readable or has an invalid getter method 问题解决:</br>
 ```
 org.springframework.beans.NotReadablePropertyException: Invalid property of bean class Bean property is not readable or has an invalid getter method.指向createtime.
 ```
 检查get/set方法原因是getCreateTime()乱入了参数Date createTime.
+
+#### 2020/09/02. 关于 new Sort(Sort.Direction.DESC,"blog.size")、new PageRequest(0,size,sort) 问题解决:</br>
+```
+		 /*------指定排序规则-------------------------------------*/
+		旧版本：Sort sort = new Sort(Sort.Direction.DESC,"blog.size")
+		新版本：Sort sort = Sort.by(Sort.Direction.DESC,"blog.size");
+		/*------取分页对象中第一页，指定size-----------------------*/
+		旧版本：Pageable pageable = new PageRequest(0,size,sort)
+		新版本：Pageable pageable = PageRequest.of(0,size,sort);
+```
