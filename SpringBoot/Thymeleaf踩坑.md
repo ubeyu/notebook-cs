@@ -41,7 +41,7 @@
  #### 2020/09/02. 关于Thymeleaf中 只刷新指定区域页面 的使用：</br>
  使用：（注意id中不用#）
  ```
-        //不能再使用form表单的submit请求，自定义loadData用于实现jQuery的ajax请求方法，通过 HTTP 请求加载远程数据，使用load方法动态获取表格内容
+//不能再使用form表单的submit请求，自定义loadData用于实现jQuery的ajax请求方法，通过 HTTP 请求加载远程数据，使用load方法动态获取表格内容
         function loadData() {
             //"#table-container"代表外层div，使用load方法请求地址，传递form表单内输入的title/typeId等内容
             ///*[[@{/admin/blogManage/search}]]*/为thymeleaf写法
@@ -74,16 +74,16 @@
   #### 2020/09/02. 关于Thymeleaf中 Form 表单中 th:object="${blog}" 的使用：</br>
  在form中引入：
  ```
-<!--------method="post"表单以post方式提交 对应Controller中Post----------->
-<!--------通过Thymeleaf中th:action与后台管理连接------将表单输入文章信息提交给Controller---/admin/blogManage/add----->
-<!---后端校验提示内容：th:object="${blog}"用来从后端控制器获取blog对象---对新的页面按之前值进行初始化--修改用-->
-<!---（需要放在th:object后才能获取id）th:action="*{id} == null? @{/admin/blogManage}:@{/admin/blogManage/{id}}"用来判断是[新增]还是[修改]--->
-<form id="newBlog" action="#" th:object="${blog}" th:action="*{id} == null? @{/admin/blogManage/add} : @{/admin/blogManage/update/{id}(id=*{id})}" method="post" class="ui form">
+ <!--------method="post"表单以post方式提交 对应Controller中Post----------->
+ <!--------通过Thymeleaf中th:action与后台管理连接------将表单输入文章信息提交给Controller---/admin/blogManage/add----->
+ <!---后端校验提示内容：th:object="${blog}"用来从后端控制器获取blog对象---对新的页面按之前值进行初始化--修改用-->
+ <!---（需要放在th:object后才能获取id）th:action="*{id} == null? @{/admin/blogManage}:@{/admin/blogManage/{id}}"用来判断是[新增]还是[修改]--->
+ <form id="newBlog" action="#" th:object="${blog}" th:action="*{id} == null? @{/admin/blogManage/add} : @{/admin/blogManage/update/{id}(id=*{id})}" method="post" class="ui form">
  ```
  在内部中引用对象的字段：
  ```
-<!---定义隐含域----后台传递id值--->
-<input type="hidden" name="id" th:value="*{id}">
-<!--这里是typeId 对应Blog的type的id *{type}!=null用于判断若不为空则赋值 若不加则报错！！！！！ 用于判断这是新增还是修改，若新增则没有type.ID，所有不引入，若修改则引入   -->
-<input type="hidden" name="type.id" th:value="*{type}!=null ? *{type.id}">
+ <!---定义隐含域----后台传递id值--->
+ <input type="hidden" name="id" th:value="*{id}">
+ <!--这里是typeId 对应Blog的type的id *{type}!=null用于判断若不为空则赋值 若不加则报错！！！！！ 用于判断这是新增还是修改，若新增则没有type.ID，所有不引入，若修改则引入   -->
+ <input type="hidden" name="type.id" th:value="*{type}!=null ? *{type.id}">
  ```
