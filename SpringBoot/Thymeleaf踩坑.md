@@ -3,7 +3,14 @@
 #### 2020/08/27. 关于Thymeleaf中 th:each 的使用：</br>
  使用1：</br>
 ```
-      <div th:each="type:${types}" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div> 
+选择框的引用：
+  1.  <div th:each="type:${types}" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div> 
+
+  2.  <!--typeId 对应 data-value-->
+      <div class="menu">
+           <!--与后端结合 使用th:each="type:${types}"以循环的方式从types对象可以获取所有type对象 -->
+           <div th:each="type:${types}" class="item" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div>
+      </div>                     
  ```
  使用2：</br>
  ```
