@@ -72,7 +72,7 @@
  ```
  
   #### 2020/09/02. 关于Thymeleaf中 Form 表单中 th:object="${blog}" 的使用：</br>
- 在<!--form-->中引入：
+ 在form中引入：
  ```
 <!--------method="post"表单以post方式提交 对应Controller中Post----------->
 <!--------通过Thymeleaf中th:action与后台管理连接------将表单输入文章信息提交给Controller---/admin/blogManage/add----->
