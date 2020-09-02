@@ -101,5 +101,30 @@ VO是值对象，准确地讲，它是业务对象，是生活在业务层的，
 </br>
 PO和VO的关系应该是相互独立的，一个VO可以只是PO的部分，也可以是多个PO构成，同样也可以等同于一个PO（当然我是指他们的属性）。正因为这样，PO独立出来，数据持久层也就独立出来了，它不会受到任何业务的干涉。又正因为这样，业务逻辑层也独立开来，它不会受到数据持久层的影响，业务层关心的只是业务逻辑的处理，至于怎么存怎么读交给别人吧！不过，另外一点，如果我们没有使用数据持久层，或者说没有使用hibernate，那么PO和VO也可以是同一个东西，虽然这并不好。
 
+#### 2020/09/02. 一直报错"Id={46"是BlogServiceImpl中update实现处存在问题:</br>
+```
+错误博客修改代码：
+	 @Transactional
+	 @Override
+	 public Blog updateBlog(Long id,Blog blog) {
+		Blog blog_cur=blogRepository.findById(id).get();
+		if(blog_cur == null){
+		--未查到则抛出异常--
+			throw new NotFoundException("该博客不存在");
+		}
+		/*--------对更新日期修改-----*/
+		blog.setUpdateTime(new Date());
+		/*--------将blog属性复制到blog_cur-----*/
+		BeanUtils.copyProperties(blog,blog_cur);
+		return blogRepository.save(blog_cur);
+	}
+正确博客修改代码：
+	@Transactional
+	@Override
+	public Blog updateBlog(Blog blog) {
+		/*--------对更新日期修改-----*/
+		blog.setUpdateTime(new Date());
+		return blogRepository.save(blog);
+	}
+```
 
-9.
