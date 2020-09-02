@@ -3,38 +3,87 @@
 #### 2020/08/27. 关于Thymeleaf中 th:each 的使用：</br>
  使用1：</br>
 ```
- <div th:each="type:${types}" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div> 
+      <div th:each="type:${types}" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div> 
  ```
  使用2：</br>
  ```
- <!--与后端结合 使用th:each以循环的方式从page对象中的content可以获取所有tag对象 iterStat表示进行循环 -->
-<tr th:each="tag,iterStat:${page.content}">
-    <!--使用th:text从iterStat中获取循环索引值-->
-    <td th:text="${iterStat.count}">1</td>
-    <!--使用th:text从每个type对象获取name-->
-    <td th:text="${tag.name}">前端</td>
-    <td data-label="操作">
-        <!--返回编辑页面-->
-        <!--------通过Thymeleaf中th:href---Controller---/admin/tagManage----->
-        <!--使用${tag.id}从每个tag对象获取id 调用update 然后替换路径中（id）-->
-        <a href="#" th:href="@{/admin/tagManage/update/{id}(id=${tag.id})}" class="ui mini teal button">编辑</a>
-        <!--返回删除页面-->
-        <!--------通过Thymeleaf中th:href---Controller---/admin/tagManage----->
-        <!--使用${tag.id}从每个tag对象获取id 调用delete 然后删除路径中（id）-->
-        <a href="#" th:href="@{/admin/tagManage/delete/{id}(id=${tag.id})}" class="ui mini red button">删除</a>
-    </td>
-</tr>
+      <!--与后端结合 使用th:each以循环的方式从page对象中的content可以获取所有tag对象 iterStat表示进行循环 -->
+      <tr th:each="tag,iterStat:${page.content}">
+         <!--使用th:text从iterStat中获取循环索引值-->
+         <td th:text="${iterStat.count}">1</td>
+         <!--使用th:text从每个type对象获取name-->
+         <td th:text="${tag.name}">前端</td>
+         <td data-label="操作">
+             <!--返回编辑页面-->
+             <!--------通过Thymeleaf中th:href---Controller---/admin/tagManage----->
+             <!--使用${tag.id}从每个tag对象获取id 调用update 然后替换路径中（id）-->
+             <a href="#" th:href="@{/admin/tagManage/update/{id}(id=${tag.id})}" class="ui mini teal button">编辑</a>
+             <!--返回删除页面-->
+             <!--------通过Thymeleaf中th:href---Controller---/admin/tagManage----->
+             <!--使用${tag.id}从每个tag对象获取id 调用delete 然后删除路径中（id）-->
+             <a href="#" th:href="@{/admin/tagManage/delete/{id}(id=${tag.id})}" class="ui mini red button">删除</a>
+         </td>
+     </tr>
 ```
 
 #### 2020/08/27. 关于Thymeleaf中 点击按钮触发JS脚本 的使用：</br>
  使用1：（注意id中不用#）
  ```
- // 中间部分：
-<div id="table-container">不用#
- // JS脚本：点击搜索按钮脚本
-<script>
- $('#search-button').click(function () {
-   loadData();
- });
-</script>
+          // 中间部分：
+         <div id="table-container">不用#
+          // JS脚本：点击搜索按钮脚本
+         <script>
+          $('#search-button').click(function () {
+            loadData();
+          });
+         </script>
+ ```
+ #### 2020/09/02. 关于Thymeleaf中 只刷新指定区域页面 的使用：</br>
+ 使用：（注意id中不用#）
+ ```
+        //不能再使用form表单的submit请求，自定义loadData用于实现jQuery的ajax请求方法，通过 HTTP 请求加载远程数据，使用load方法动态获取表格内容
+        function loadData() {
+            //"#table-container"代表外层div，使用load方法请求地址，传递form表单内输入的title/typeId等内容
+            ///*[[@{/admin/blogManage/search}]]*/为thymeleaf写法
+            $("#table-container").load(/*[[@{/admin/blogManage/search}]]*/"/admin/blogManage/search",{
+                title: $("[name='title']").val(),
+                typeId: $("[name='typeId']").val(),
+                recommendOpening: $("[name='recommendOpening']").prop('checked'),
+                page: $("[name='page']").val()
+            });
+        }
+ ```
+ 在其他JS脚本中引用：
+ ```
+        //点击搜索按钮脚本<div id="table-container">不用#
+        $('#search-button').click(function () {
+            //name='page'获取隐含域，val用于对其赋obj的值，obj为点击时生成对象，.data()为自定义的data-page值
+            //点击搜索时，对原有状态清零
+            $("[name='page']").val(0);
+            loadData();
+        });
+        //用于点击上下页时动态处理form表单中page属性值
+        function page(obj) {
+            //name='page'获取隐含域，val用于对其赋obj的值，obj为点击时生成对象，.data()为自定义的data-page值
+            $("[name='page']").val($(obj).data("page"));
+            //点击上下页时也需要调用此方法
+            loadData();
+        }
+ ```
+ 
+  #### 2020/09/02. 关于Thymeleaf中 Form 表单中 th:object="${blog}" 的使用：</br>
+ 在<form>中引入：
+ ```
+     <!--------method="post"表单以post方式提交 对应Controller中Post----------->
+             <!--------通过Thymeleaf中th:action与后台管理连接------将表单输入文章信息提交给Controller---/admin/blogManage/add----->
+             <!---后端校验提示内容：th:object="${blog}"用来从后端控制器获取blog对象---对新的页面按之前值进行初始化--修改用-->
+             <!---（需要放在th:object后才能获取id）th:action="*{id} == null? @{/admin/blogManage}:@{/admin/blogManage/{id}}"用来判断是[新增]还是[修改]--->
+             <form id="newBlog" action="#" th:object="${blog}" th:action="*{id} == null? @{/admin/blogManage/add} : @{/admin/blogManage/update/{id}(id=*{id})}" method="post" class="ui form">
+ ```
+ 在内部中引用对象的字段：
+ ```
+            <!---定义隐含域----后台传递id值--->
+            <input type="hidden" name="id" th:value="*{id}">
+            <!--这里是typeId 对应Blog的type的id *{type}!=null用于判断若不为空则赋值 若不加则报错！！！！！ 用于判断这是新增还是修改，若新增则没有type.ID，所有不引入，若修改则引入   -->
+            <input type="hidden" name="type.id" th:value="*{type}!=null ? *{type.id}">
  ```
