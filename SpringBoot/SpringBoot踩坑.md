@@ -168,4 +168,8 @@ Blog中tagsToIds方法 正确博客修改代码：
 		}
 	    }    
 ```
-
+#### 2020/09/02. 关于 Invalid property of bean class Bean property is not readable or has an invalid getter method 解决:</br>
+```
+org.springframework.beans.NotReadablePropertyException: Invalid property of bean class Bean property is not readable or has an invalid getter method.指向createtime.
+```
+检查get/set方法原因是getCreateTime()乱入了参数Date createTime.
