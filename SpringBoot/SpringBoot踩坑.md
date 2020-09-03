@@ -176,10 +176,14 @@ org.springframework.beans.NotReadablePropertyException: Invalid property of bean
 
 #### 2020/09/02. 关于 new Sort(Sort.Direction.DESC,"blog.size")、new PageRequest(0,size,sort) 问题解决:</br>
 ```
-		 /*------指定排序规则-------------------------------------*/
+	1./*------指定排序规则-------------------------------------*/
 		旧版本：Sort sort = new Sort(Sort.Direction.DESC,"blog.size")
 		新版本：Sort sort = Sort.by(Sort.Direction.DESC,"blog.size");
-		/*------取分页对象中第一页，指定size-----------------------*/
+	2./*------取分页对象中第一页，指定size-----------------------*/
 		旧版本：Pageable pageable = new PageRequest(0,size,sort)
 		新版本：Pageable pageable = PageRequest.of(0,size,sort);
+	3./*------调用tagRepository找到最多的前size个标签分类，此时在tagRepository定义的输入参数需要是正确的库引入的------*/
+		/*----正确---*/import org.springframework.data.domain.Pageable;
+		/*----错误---*/import java.awt.print.Pageable;
+		return tagRepository.findTopTag(pageable);
 ```
