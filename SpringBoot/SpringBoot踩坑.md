@@ -187,3 +187,17 @@ org.springframework.beans.NotReadablePropertyException: Invalid property of bean
 		/*----错误---*/import java.awt.print.Pageable;
 		return tagRepository.findTopTag(pageable);
 ```
+#### 2020/09/03. 关于 DAO 层 @Query 查询 new Sort(Sort.Direction.DESC,"blog.size")、new PageRequest(0,size,sort) 问题解决:</br>
+like ?1 代表方法内第一个参数，使用 like ?2 第二个参数时报错：
+```
+若用：@Query("select b from Blog b where b.title like ?2 or b.content like ?2 ")
+则报错：Caused by: java.lang.IllegalArgumentException: At least 2 parameter(s) provided but only 1 parameter(s) present in query.
+```
+暂未找到原因。
+```
+正确使用：
+    /*------ @Query("")自定义查询--只选择标题或正文包含字符串的文章-----*/
+    @Query("select b from Blog b where b.title like ?1 or b.content like ?1 ")
+    /*------Pageable根据分页对象传递参数，分页对象内有排序及大小-----*/
+    Page<Blog> findSearchBlog(String query,Pageable pageable);
+```
