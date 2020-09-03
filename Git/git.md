@@ -12,6 +12,8 @@ git commit -m "Error handling page improved.Fragment (Thymeleaf) added,which is 
 git commit -m "Management of types is added"
 git commit -m "Types list and query function is added in blogManage page"
 git commit -m "Back_end management function is completed"
+git commit -m "Home display and global query are completed"
+
 
 git remote rm origin
 git remote add origin https://github.com/wanghaoyang949/why-home-font_end-Formatted.git
