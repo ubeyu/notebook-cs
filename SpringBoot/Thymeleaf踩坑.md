@@ -95,11 +95,19 @@
  <input type="hidden" name="type.id" th:value="*{type}!=null ? *{type.id}">
  ```
  
-   #### 2020/09/02. 关于Thymeleaf中 th:text="|${blog.description} 用于连接字符串 的使用：
+   #### 2020/09/02. 关于Thymeleaf中 th:text="|${blog.description}" 用于连接字符串 的使用：
  ```
  <!--------th:text="|${blog.description}...|"用于连接字符串------->
    <p class="m-text-article" th:text="|${blog.description}......|">
  本文将对Vue的常用系统指令进行学习，包括v-on 指令、v-text 、v-html、v-blind指令、v-model指令、v-for指令、v-if 与 v-show指令，每个指令都给出案例进行演示
    </p>
  ```
+ 
+  #### 2020/09/03. 关于Thymeleaf中 th:text=""和th:utext="" 的使用：
+   ```
+ th:text="" 用于不转义的，所以输出文本中带有的<p></p>等HTML格式信息没有转义成相应格式；
+ th:utext="" 用于转义的，可以恢复原始格式。
+
+ ```
+
                             
