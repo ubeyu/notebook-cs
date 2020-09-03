@@ -94,3 +94,12 @@
  <!--这里是typeId 对应Blog的type的id *{type}!=null用于判断若不为空则赋值 若不加则报错！！！！！ 用于判断这是新增还是修改，若新增则没有type.ID，所有不引入，若修改则引入   -->
  <input type="hidden" name="type.id" th:value="*{type}!=null ? *{type.id}">
  ```
+ 
+   #### 2020/09/02. 关于Thymeleaf中 th:text="|${blog.description} 用于连接字符串 的使用：
+ ```
+ <!--------th:text="|${blog.description}...|"用于连接字符串------->
+   <p class="m-text-article" th:text="|${blog.description}......|">
+ 本文将对Vue的常用系统指令进行学习，包括v-on 指令、v-text 、v-html、v-blind指令、v-model指令、v-for指令、v-if 与 v-show指令，每个指令都给出案例进行演示
+   </p>
+ ```
+                            
