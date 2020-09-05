@@ -13,6 +13,7 @@ git commit -m "Management of types is added"
 git commit -m "Types list and query function is added in blogManage page"
 git commit -m "Back_end management function is completed"
 git commit -m "Home display and global query are completed"
+git commit -m "Comment function is completed"
 
 
 git remote rm origin
