@@ -1,7 +1,7 @@
 # ---------------Thymeleaf踩坑记录---------------
 
 #### 2020/08/27. 关于Thymeleaf中 th:each 的使用：</br>
- 使用1：</br>
+ 使用1：
 ```
 选择框的引用：
   1.  <div th:each="type:${types}" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div> 
@@ -12,7 +12,7 @@
            <div th:each="type:${types}" class="item" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div>
       </div>                     
  ```
- 使用2：</br>
+ 使用2：
  ```
       <!--与后端结合 使用th:each以循环的方式从page对象中的content可以获取所有tag对象 iterStat表示进行循环 -->
       <tr th:each="tag,iterStat:${page.content}">
@@ -28,6 +28,18 @@
              <!--返回删除页面-->
              <!--------通过Thymeleaf中th:href---Controller---/admin/tagManage----->
              <!--使用${tag.id}从每个tag对象获取id 调用delete 然后删除路径中（id）-->
+             <a href="#" th:href="@{/admin/tagManage/delete/{id}(id=${tag.id})}" class="ui mini red button">删除</a>
+         </td>
+     </tr>
+```
+注意1：Thymeleaf模板中每个值都用的"对象.字段"的形式，而不是调用"对象.set/get方法"的形式！！！（2020/9/4）
+ ```
+      <!--与后端结合 使用th:each以循环的方式从page对象中的content可以获取所有tag对象 iterStat表示进行循环 -->
+      <tr th:each="tag,iterStat:${page.content}">
+         <td th:text="${iterStat.count}">1</td>
+         <td th:text="${tag.name}">前端</td>
+         <td data-label="操作">
+             <a href="#" th:href="@{/admin/tagManage/update/{id}(id=${tag.id})}" class="ui mini teal button">编辑</a>
              <a href="#" th:href="@{/admin/tagManage/delete/{id}(id=${tag.id})}" class="ui mini red button">删除</a>
          </td>
      </tr>
@@ -107,7 +119,10 @@
    ```
  th:text="" 用于不转义的，所以输出文本中带有的<p></p>等HTML格式信息没有转义成相应格式；
  th:utext="" 用于转义的，可以恢复原始格式。
-
  ```
-
+  #### 2020/09/05. 关于Thymeleaf中 th:text=""和th:utext="" 的使用：
+   ```
+ th:text="" 用于不转义的，所以输出文本中带有的<p></p>等HTML格式信息没有转义成相应格式；
+ th:utext="" 用于转义的，可以恢复原始格式。
+ ```
                             
