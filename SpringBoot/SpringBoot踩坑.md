@@ -201,7 +201,7 @@ like ?1 代表方法内第一个参数，使用 like ?2 第二个参数时报错
     /*------Pageable根据分页对象传递参数，分页对象内有排序及大小-----*/
     Page<Blog> findSearchBlog(String query,Pageable pageable);
 ```
-#### 2020/09/03. 天坑：！！！关于  return "redirect:/comments/" + blogId; 问题解决:</br>
+#### 2020/09/05. 天坑：！！！关于  return "redirect:/comments/" + blogId; 问题解决:</br>
 "redirect:/comments/"中一定一定一定不能随便加空格！！！！！！！
 ```
 	    /*----------博客页面评论提交逻辑（只刷新博客评论框）--------------*/
