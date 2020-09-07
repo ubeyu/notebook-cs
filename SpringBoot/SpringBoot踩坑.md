@@ -220,3 +220,17 @@ like ?1 代表方法内第一个参数，使用 like ?2 第二个参数时报错
 	    /*---------博客页面评论提交逻辑（只刷新博客评论框）---------------*/
 ```
 
+#### 2020/09/07. 关于 org.springframework.data.mapping.PropertyReferenceException: No property size found for type Blog! Traversed path: Type.blogs. 问题解决:</br>
+以下代码一直报上述错误：
+```
+    /*-----()-实现以文章数量由大到小的顺序获取全部分类的接口----返回一个List<Type>--用于用户分类页---*/
+    @Transactional
+    @Override
+    public List<Type> listTypeByOrder() {
+        Sort sort= Sort.by(Sort.Direction.DESC,"blogs.size");
+        return typeRepository.findAll(sort);
+    }
+```
+暂未找到原因。
+
+
