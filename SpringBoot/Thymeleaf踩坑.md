@@ -125,4 +125,12 @@
  th:text="" 用于不转义的，所以输出文本中带有的<p></p>等HTML格式信息没有转义成相应格式；
  th:utext="" 用于转义的，可以恢复原始格式。
  ```
-                            
+ 
+  #### 2020/09/07. 关于Thymeleaf中 th:classappend="${type.id == currentId} ? 'blue'" 的 class 判断+追加的使用：
+  判断当前循环的type.id是否等于当前分类页面指定分类，若等于，则加颜色用于区分！
+```
+<div class="ui labeled m-margin-tb-mini button" tabindex="0" th:each=type:${types}">
+   <a href="#" th:href="@{/types/{id}(id=${type.id})}" class="ui basic button" th:classappend="${type.id == currentId} ? 'blue'" th:text="${type.name}">学习日志</a>
+   <a class="ui basic left pointing label" th:classappend="${type.id == currentId} ? 'blue'" th:text="${#arrays.length(type.blogs)}">24</a>
+</div>
+```                          
