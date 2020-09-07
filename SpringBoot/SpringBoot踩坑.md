@@ -223,6 +223,8 @@ like ?1 代表方法内第一个参数，使用 like ?2 第二个参数时报错
 #### 2020/09/07. 关于 org.springframework.data.mapping.PropertyReferenceException: No property size found for type Blog! Traversed path: Type.blogs. 问题解决:</br>
 以下代码一直报上述错误：
 ```
+TypeServiceImpl业务层中：
+
     /*-----()-实现以文章数量由大到小的顺序获取全部分类的接口----返回一个List<Type>--用于用户分类页---*/
     @Transactional
     @Override
@@ -230,7 +232,26 @@ like ?1 代表方法内第一个参数，使用 like ?2 第二个参数时报错
         Sort sort= Sort.by(Sort.Direction.DESC,"blogs.size");
         return typeRepository.findAll(sort);
     }
+    
+最后暂时使用了获取文章最多的分类排行方法： public List<Type> listTypeTop(Integer size) 
 ```
 暂未找到原因。
 
+#### 2020/09/07. 查 blogs-tags 关联表 使用 JPA 的 criteriaQuery:</br>
+```
+在BlogServiceImpl业务层中：
 
+    /*------criteriaQuery实现根据分类ID获取文章Blog的一个List的接口----返回一个List<Blog>--用于分类页面展示---*/
+    @Override
+    public Page<Blog> listBlogByType(Pageable pageable, Long typeId) {
+        return blogRepository.findAll(new Specification<Blog>() {
+            @Override
+            public Predicate toPredicate(Root<Blog> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                Join join = root.join("type");
+                return criteriaBuilder.equal(join.get("id"),typeId);
+            }
+        },pageable);
+    }
+    
+！！特别用于blog的tags属性为一个集合，查有其中一个tag的Blog集合方法！！
+```
