@@ -134,3 +134,15 @@
    <a class="ui basic left pointing label" th:classappend="${type.id == currentId} ? 'blue'" th:text="${#arrays.length(type.blogs)}">24</a>
 </div>
 ```                          
+  #### 2020/09/07. 关于Thymeleaf中 org.attoparser.ParseException: (Line = 64, Column = 73) Malformed markup: Attribute "class" appears more than once in element 报错：
+```
+<div class="ui labeled m-margin-tb-mini button" tabindex="0" th:each=type:${types}">
+  <a href="#" th:href="@{/types/{id}(id=${type.id})}" class="ui basic button" th:classappend="${type.id == currentId} ? 'blue'" th:text="${type.name}">学习日志</a>
+  <!--报错：(Line = 65, Column = 26) Malformed markup: Attribute "class" appears more than once in element-->
+  <a class="ui basic left pointing label" th:classappend="${type.id == currentId} ? 'blue'" th:text="${#arrays.length(type.blogs)}">24</a>
+</div>
+```
+不认真！！！
+```
+th:each=type:${types}"  加前面的省略号！！！
+```
