@@ -1,7 +1,15 @@
 # ---------------Thymeleaf踩坑记录---------------
 
 #### 2020/08/27. 关于Thymeleaf中 th:each 的使用：</br>
- 使用1：
+在一个div中优先级最高！！ 所以放在最后的位置，前面也可以读取循环的每个值：
+eg:
+```
+<a href="#" th:href="@{/tags/{id}(id=${tag.id})}" target="_blank" class="ui basic left pointing large label m-margin-tb-mini"  th:classappend="${tag.id == currentId} ? 'blue'" th:each="tag:${tags}">
+  <span th:text="${tag.name}">前端</span>
+  <div class="detail" th:text="${#arrays.length(tag.blogs)}">21</div>
+</a>
+```
+使用1：
 ```
 选择框的引用：
   1.  <div th:each="type:${types}" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div> 
