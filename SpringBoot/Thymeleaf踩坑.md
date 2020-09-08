@@ -154,3 +154,9 @@ eg:
 ```
 th:each=type:${types}"  加前面的省略号！！！
 ```
+  #### 2020/09/08. 关于Thymeleaf中 th:block 循环块，可以将要循环的部分放到其内部，功能类似在外层放一个div：
+```
+<th:block>
+</th:block>
+```
+
