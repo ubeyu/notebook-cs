@@ -10,6 +10,9 @@
 
 * [1.SpringBoot踩坑记录](SpringBoot/SpringBoot踩坑.md)
 * [2.Thymeleaf踩坑记录](SpringBoot/Thymeleaf踩坑.md)
-* [3.Java基础踩坑记录](Java基础/Java填坑.md)
+
+## Java基础
+
+* [Java基础踩坑记录](Java基础/Java填坑.md)
 
 
