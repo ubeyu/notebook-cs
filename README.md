@@ -13,6 +13,6 @@
 
 ## Java基础
 
-* [Java基础踩坑记录](Java基础/Java填坑.md)
+* [Java基础](Java基础/Java填坑.md)
 
 
