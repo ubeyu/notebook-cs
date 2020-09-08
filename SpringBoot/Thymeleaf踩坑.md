@@ -154,9 +154,34 @@ eg:
 ```
 th:each=type:${types}"  加前面的省略号！！！
 ```
-  #### 2020/09/08. 关于Thymeleaf中 th:block 循环块，可以将要循环的部分放到其内部，功能类似在外层放一个div：
+  #### 2020/09/08. 关于Thymeleaf中 1.循环Map类型参数 2.th:block 循环块，可以将要循环的部分放到其内部，功能类似在外层放一个div：
 ```
+1.用item循环接收每个Map参数：
+<th:block th:each="item : ${archivesMap}">
+        <!--归挡年份2017标题-->
+        <h2 class="ui center aligned header">2017</h2>
+        <!--归挡年份2017内容-->
+        <div class="ui segments">
+            <!--归档页面菜单-->
+            <div class="ui fluid vertical menu ">
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="teal circle icon"></i>学习日志
+                        <div class="ui teal left pointing basic label m-padded-tb-tiny">10月2日</div>
+                    </span>
+                    <div class="ui orange label m-padded-tb-tiny">原创</div>
+                </a>
+            </div>
+        </div>
+    </th:block>
+2.th:block块的使用：
 <th:block>
 </th:block>
 ```
-
+#### 2020/09/08. 关于Thymeleaf中 Date 日期格式化：
+```
+1.2020-8-13 17:30
+<div class="item" th:text="|更新于 ${#dates.format(blog.updateTime, 'yyyy-MM-dd HH:mm')}|">更新于 2020-8-13 17:30</div>
+2.10月2日
+<div class="ui teal left pointing basic label m-padded-tb-tiny" th:text="${#dates.format(blog.updateTime, 'MMMdd')}">10月2日</div>
+```
