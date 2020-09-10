@@ -15,7 +15,7 @@ git commit -m "Back_end management function is completed"
 git commit -m "Home display and global query are completed"
 git commit -m "Comment function is completed"
 git commit -m "Blog is basically completed"
-
+git commit -m "Optimizing is basically completed"
 
 git remote rm origin
 git remote add origin https://github.com/wanghaoyang949/why-home-font_end-Formatted.git
