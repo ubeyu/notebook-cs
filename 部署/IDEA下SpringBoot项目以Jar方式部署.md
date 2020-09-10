@@ -63,7 +63,7 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
         <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/Centos文件夹结构.png"></center></td>
     </tr>
 </table>
-1.连接完成后，首先安装rz文件传输工具，在Xshell中执行：
+#### 1.连接完成后，首先安装rz文件传输工具，在Xshell中执行：</br>
 
 ```
 yum install lrzsz
@@ -71,7 +71,8 @@ yum install lrzsz
 
 在提示后输入y并回车，安装成功则如左图所示。
 
-2.JDK下载链接：https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html 选择类似 jdk-8u261-linux-x64.tar.gz 的版本。 </br>
+#### 2.下载Linux JDK：</br>
+JDK下载链接：https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html 选择类似 jdk-8u261-linux-x64.tar.gz 的版本。 </br>
 若需使用甲骨文账号登录下载，账号为谷歌邮箱：wanghaoyang949@gmail.com，密码大写小写数字。 </br>
 下载完毕后，首先了解Centos文件夹结构目录，如右图所示。然后建立在Centos中建立文件夹 /user/java ：
 
