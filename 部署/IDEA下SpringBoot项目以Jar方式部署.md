@@ -63,6 +63,7 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
         <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/Centos文件夹结构.png"></center></td>
     </tr>
 </table>
+
 #### 1.连接完成后，首先安装rz文件传输工具，在Xshell中执行：</br>
 
 ```
