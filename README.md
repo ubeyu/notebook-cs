@@ -16,3 +16,8 @@
 * [Java基础](Java基础/Java填坑.md)
 
 
+## Web项目部署
+
+* [1.IDEA下以JAR方式部署SpringBoot项目](部署/IDEA下SpringBoot项目以Jar方式部署.md)
+
+
