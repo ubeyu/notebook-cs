@@ -29,8 +29,8 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
 观察到运行成功后，可以打开浏览器测试，当关闭cmd时，web则无法找到，如下图所示。
 <table>
     <tr>
-        <td ><center><img src="../images/cmd运行SpringBoot成功.jpg">nav1</center></td>
-        <td ><center><img src="../images/windows下部署8080端口成功访问.jpg">nav2</center></td>
+        <td ><center><img src="../images/cmd运行SpringBoot成功.jpg"></center></td>
+        <td ><center><img src="../images/windows下部署8080端口成功访问.jpg"></center></td>
     </tr>
 </table>
 
