@@ -64,7 +64,8 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
     </tr>
 </table>
 
-#### 1.连接完成后，首先安装rz文件传输工具，在Xshell中执行：</br>
+#### 1.安装rz文件传输工具：</br>
+连接完成后，首先安装rz文件传输工具，在Xshell中执行以下代码：</br>
 
 ```
 yum install lrzsz
