@@ -1,6 +1,8 @@
 # ---------------IDEA下SpringBoot项目以Jar方式部署---------------
 
-![Image text](../images/IDEA创建Jar.png)
+## 一、IDEA下打包SpringBoot项目到JAR文件并测试：
+
+![Image text](../images/IDEA下SpringBoot项目以Jar方式部署/IDEA创建Jar.png)
 
 #### 1. 在pom.xml下添加如下插件: </br>
 这个插件可以在项目打包成jar包后，通过java -jar运行。如果你的pom.xml文件里面有这句话就不用添加了。
@@ -29,9 +31,38 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
 观察到运行成功后，可以打开浏览器测试，当关闭cmd时，web则无法找到，如下图所示。
 <table>
     <tr>
-        <td ><center><img src="../images/cmd运行SpringBoot成功.jpg"></center></td>
-        <td ><center><img src="../images/windows下部署8080端口成功访问.jpg"></center></td>
+        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/cmd运行SpringBoot成功.jpg"></center></td>
+        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/windows下部署8080端口成功访问.jpg"></center></td>
     </tr>
 </table>
 
+## 二、云服务器安全组配置： </br>
+进入云服务器实例界面，对安全组进行配置，添加SSH(22)协议类型。
+<table>
+    <tr>
+        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/实例安全组配置1.jpg"></center></td>
+        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/实例安全组配置2.jpg"></center></td>
+    </tr>
+</table>
 
+## 三、下载XShell远程连接云服务器，便于操作： </br>
+下载链接：https://xshell.en.softonic.com/ ，可以使用甲骨文账号登录下载，账号为谷歌邮箱：wanghaoyang949@gmail.com，密码大写小写数字。</br>
+安装完毕后，按图示添加服务器配置，输入账号密码登录：
+<table>
+    <tr>
+        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器1.jpg"></center></td>
+        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器2.jpg"></center></td>
+        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器3.jpg"></center></td>
+    </tr>
+</table>
+
+## 四、配置Centos，安装rz文件传输工具和JDK： </br>
+下载链接：https://xshell.en.softonic.com/ ，可以使用甲骨文账号登录下载，账号为谷歌邮箱：wanghaoyang949@gmail.com，密码大写小写数字。</br>
+安装完毕后，按图示添加服务器配置，输入账号密码登录：
+<table>
+    <tr>
+        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器1.jpg"></center></td>
+        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器2.jpg"></center></td>
+        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器3.jpg"></center></td>
+    </tr>
+</table>
