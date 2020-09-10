@@ -64,15 +64,13 @@ yum install lrzsz
 在提示后输入y并回车，安装成功则如图所示：
 ![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/服务器rz文件传输工具安装.jpg)
 
-2.JDK下载链接：https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html </br>
-下载完毕后，首先根据在
-<table>
-    <tr>
-        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器1.jpg"></center></td>
-        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器2.jpg"></center></td>
-        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器3.jpg"></center></td>
-    </tr>
-</table>
-
-JDK下载链接：https://xshell.en.softonic.com/ ，下载类似 jdk-8u261-linux-x64.tar.gz 的版本。</br>
-若需使用甲骨文账号登录下载，账号为谷歌邮箱：wanghaoyang949@gmail.com，密码大写小写数字。</br></br>
+2.JDK下载链接：https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html 选择类似 jdk-8u261-linux-x64.tar.gz 的版本</br>
+若需使用甲骨文账号登录下载，账号为谷歌邮箱：wanghaoyang949@gmail.com，密码大写小写数字。</br>
+下载完毕后，首先了解Centos文件夹结构目录，如图所示：
+![Image text](../images/IDEA下SpringBoot项目以Jar方式部署/Centos文件夹结构.png)
+在/中建立user再建立java文件夹：
+```
+显示文件夹构成：dir
+新建：mkdir fileName
+删除：rm -rf fileName
+```
