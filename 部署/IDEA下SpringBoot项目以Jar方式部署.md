@@ -2,7 +2,7 @@
 
 ## 一、IDEA下打包SpringBoot项目到JAR文件并测试：
 
-![Image text](../images/IDEA下SpringBoot项目以Jar方式部署/IDEA创建Jar.png)
+![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/IDEA创建Jar.png)
 
 #### 1. 在pom.xml下添加如下插件: </br>
 这个插件可以在项目打包成jar包后，通过java -jar运行。如果你的pom.xml文件里面有这句话就不用添加了。
@@ -31,8 +31,8 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
 观察到运行成功后，可以打开浏览器测试，当关闭cmd时，web则无法找到，如下图所示。
 <table>
     <tr>
-        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/cmd运行SpringBoot成功.jpg"></center></td>
-        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/windows下部署8080端口成功访问.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/cmd运行SpringBoot成功.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/windows下部署8080端口成功访问.jpg"></center></td>
     </tr>
 </table>
 
@@ -40,19 +40,19 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
 进入云服务器实例界面，对安全组进行配置，添加SSH(22)协议类型。
 <table>
     <tr>
-        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/实例安全组配置1.jpg"></center></td>
-        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/实例安全组配置2.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/实例安全组配置1.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/实例安全组配置2.jpg"></center></td>
     </tr>
 </table>
 
 ## 三、安装XShell远程连接云服务器，便于操作： </br>
-下载链接：https://xshell.en.softonic.com/ </br>
+下载链接：https://www.netsarang.com/zh/xshell/ </br>
 安装完毕后，按图示添加服务器配置，输入账号密码登录，连接远程云服务器：
 <table>
     <tr>
-        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器1.jpg"></center></td>
-        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器2.jpg"></center></td>
-        <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器3.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器1.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器2.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器3.jpg"></center></td>
     </tr>
 </table>
 
@@ -62,9 +62,10 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
 yum install lrzsz
 ```
 在提示后输入y并回车，安装成功则如图所示：
+![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/服务器rz文件传输工具安装.jpg)
 
-
-在Xshell上执行rz命令就可以实现
+2.JDK下载链接：https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html </br>
+下载完毕后，首先根据在
 <table>
     <tr>
         <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器1.jpg"></center></td>
