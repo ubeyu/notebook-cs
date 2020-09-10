@@ -20,7 +20,11 @@
 例如：Building jar: D:\IdeaProjects\why_home-master\target\back_end-0.0.1-SNAPSHOT.jar 即指明了JAR位置。</br>
 
 
-#### 3. 在IDEA右侧Maven里面打包: </br>
-在IDEA界面右侧 项目名称——>maven——>Lifecycle——>右键package——>Run Maven Build，这个菜单就和DataBase在一起，如果看不见就点击IDEA最左下角的方块图标。</br>
-点击完后，IDEA下方Run窗口会有一堆信息，里面就包含着jar包的位置，如果信息太多找不到就搜索：Building jar，后面的盘符信息就是jar包的位置了。</br>
-例如：Building jar: D:\IdeaProjects\why_home-master\target\back_end-0.0.1-SNAPSHOT.jar 即指明了JAR位置。</br>
+#### <Windows下演示>: </br>
+在CMD命令窗口里运行jar包：
+```
+cd D:\IdeaProjects\why_home-master\target\ 
+java -jar back_end-0.0.1-SNAPSHOT.jar
+```
+观察到运行成功后，可以打开浏览器测试，当关闭cmd时，web则无法找到，如下图所示。
+![Image text](../images/cmd运行SpringBoot成功.jpg) ![Image text](../images/windows下部署8080端口成功访问.jpg)
