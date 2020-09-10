@@ -1,6 +1,6 @@
 # ---------------IDEA下SpringBoot项目以Jar方式部署---------------
 
-![Image text](images/IDEA创建Jar.png)
+![Image text](../images/IDEA创建Jar.png)
 
 #### 1. 在pom.xml下添加如下插件: </br>
 这个插件可以在项目打包成jar包后，通过java -jar运行。如果你的pom.xml文件里面有这句话就不用添加了。
