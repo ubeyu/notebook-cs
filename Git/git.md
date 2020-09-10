@@ -24,6 +24,27 @@ git remote add origin git@github.com:wanghaoyang949/why_home.git
 git push -u origin master
 ```
 
+### 删除指定文件夹：
+
+```
+git pull origin master  //需要先拉取代码
+cd            //到指定文件夹上级目录
+dir          //找到要删除的文件夹名
+git rm -r --cached Java_Map（文件名）  //删除文件夹
+git commit -m 'delete'  //提交Commit
+git push -u origin master  //更新到在线仓库
+```
+
+### 修改指定文件夹：
+
+```
+git pull origin master  //需要先拉取代码
+cd            //到指定文件夹上级目录
+dir           //找到要修改的文件夹名
+git mv -f oldname newname（文件名）  //修改文件夹
+git commit -m 'change'  //提交Commit
+git push -u origin master  //更新到在线仓库
+```
 
 ### 变换环境创建：
 //需要先拉取代码
@@ -46,18 +67,6 @@ git commit -m ""
 // 推送代码已经关联分支
 git push 
 git push -u origin master
-```
-
-
-### 删除指定文件夹：
-
-```
-git pull origin master  //需要先拉取代码
-cd            //到指定文件夹上级目录
-dir          //找到要删除的文件夹名
-git rm -r --cached Java_Map  //删除文件夹
-git commit -m ''entity' is changed to 'po''  //提交Commit
-git push -u origin master  //更新到在线仓库
 ```
 
 
