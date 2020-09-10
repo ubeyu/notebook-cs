@@ -45,9 +45,9 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
     </tr>
 </table>
 
-## 三、下载XShell远程连接云服务器，便于操作： </br>
-下载链接：https://xshell.en.softonic.com/ ，可以使用甲骨文账号登录下载，账号为谷歌邮箱：wanghaoyang949@gmail.com，密码大写小写数字。</br>
-安装完毕后，按图示添加服务器配置，输入账号密码登录：
+## 三、安装XShell远程连接云服务器，便于操作： </br>
+下载链接：https://xshell.en.softonic.com/ </br>
+安装完毕后，按图示添加服务器配置，输入账号密码登录，连接远程云服务器：
 <table>
     <tr>
         <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器1.jpg"></center></td>
@@ -57,8 +57,14 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
 </table>
 
 ## 四、配置Centos，安装rz文件传输工具和JDK： </br>
-下载链接：https://xshell.en.softonic.com/ ，可以使用甲骨文账号登录下载，账号为谷歌邮箱：wanghaoyang949@gmail.com，密码大写小写数字。</br>
-安装完毕后，按图示添加服务器配置，输入账号密码登录：
+1.连接完成后，首先安装rz文件传输工具，在Xshell中执行：
+```
+yum install lrzsz
+```
+在提示后输入y并回车，安装成功则如图所示：
+
+
+在Xshell上执行rz命令就可以实现
 <table>
     <tr>
         <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器1.jpg"></center></td>
@@ -66,3 +72,6 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
         <td ><center><img src="../images/IDEA下SpringBoot项目以Jar方式部署/XShell连接服务器3.jpg"></center></td>
     </tr>
 </table>
+
+JDK下载链接：https://xshell.en.softonic.com/ ，下载类似 jdk-8u261-linux-x64.tar.gz 的版本。</br>
+若需使用甲骨文账号登录下载，账号为谷歌邮箱：wanghaoyang949@gmail.com，密码大写小写数字。</br></br>
