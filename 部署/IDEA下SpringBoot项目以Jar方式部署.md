@@ -321,5 +321,16 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
 #### 1.运行JAR项目时 Exception in thread "main" java.lang.UnsupportedClassVersionError：</br>
 ![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/版本不一致问题.jpg)
 
+解决：</br>
+将maven项目所要求的java版本改成1.8，即POM文件添加如下配置：
+```
+<properties>
+        <java.version>1.8</java.version>
+</properties>
+```
+
+![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/版本不一致问题解决.jpg)
+
+
 
 
