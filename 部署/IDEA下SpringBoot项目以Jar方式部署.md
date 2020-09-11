@@ -283,3 +283,25 @@ select version();
 
 ![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/rz上传项目JAR包.jpg)
 
+#### 3.检查端口是否被占用：</br>
+要想在服务器上运行这个项目，就要保证项目运行所用的端口没有被占用，不然运行就会报错。使用以下指令查看端口使用情况：
+```
+//netstat -anp | grep <端口号> 端口号为想要检查的端口号
+netstat -anp | grep 8800   
+```
+指令运行后不显示任何东西则没有被占用。</br>
+若被占用则会显示一条端口信息，可以使用如下指令查看占用端口的PID：
+```
+//sudo lsof -i:<端口号>
+sudo lsof -i:8800  
+```
+获取PID号后，可以将其kill掉，留出空位来运行项目：
+```
+//sudo kill -9 <PID>
+sudo kill -9 26191  
+```
+kill后再次netstat查看端口，可以看到这个端口不再被占用。
+![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/端口检测和kill.png)
+
+
+
