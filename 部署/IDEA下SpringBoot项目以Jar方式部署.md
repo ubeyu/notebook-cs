@@ -220,7 +220,7 @@ default-character-set =utf8
 
 #### <MySQL其他相关配置>:
 ```
-1、设置安全选项：
+1、设置安全选项
 mysql_secure_installation
 2、关闭MySQL
 systemctl stop mysqld 
@@ -232,9 +232,9 @@ systemctl status mysqld
 systemctl enable mysqld 
 6、关闭开机启动
 systemctl disable mysqld 
-7、配置默认编码为utf8：
+7、配置默认编码为utf8
 vi /etc/my.cnf #添加 [mysqld] character_set_server=utf8 init_connect='SET NAMES utf8'
-其他默认配置文件路径： 
+其他默认配置文件路径：
 配置文件：/etc/my.cnf 日志文件：/var/log//var/log/mysqld.log 服务启动脚本：/usr/lib/systemd/system/mysqld.service socket文件：/var/run/mysqld/mysqld.pid
 8、查看版本
 select version();
