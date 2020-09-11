@@ -73,7 +73,7 @@ yum install lrzsz
 
 在提示后输入y并回车，安装成功则如左图所示。
 
-#### 2.下载Linux JDK：</br>
+#### 2.下载并上传Linux JDK到服务器指定文件夹（最好放在此处方便环境变量配置）：</br>
 JDK下载链接：https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html 选择类似 jdk-8u261-linux-x64.tar.gz 的版本。 </br>
 若需使用甲骨文账号登录下载，账号为谷歌邮箱：wanghaoyang949@gmail.com，密码大写小写数字。 </br>
 下载完毕后，首先了解Centos文件夹结构目录，如右图所示。然后建立在Centos中建立文件夹 /user/java ：
@@ -85,4 +85,44 @@ dir
 mkdir fileName
 删除：
 rm -rf fileName
+进入java文件夹：
+cd /
+cd user
+cd java
+命令行输入指令上传 jdk-8u261-linux-x64.tar.gz 文件：
+rz
+查看文件夹内所有文件可以用：
+ls
 ```
+
+#### 3.解压缩，配置Linux系统环境变量：</br>
+在 jdk-8u261-linux-x64.tar.gz 所在文件夹中输入tar命令用于解压：
+
+```
+tar -zxvf jdk-8u261-linux-x64.tar.gz
+```
+
+配置系统环境变量，首先打开文件 /etc/profile ：
+
+```
+cd /
+cd etc
+vim profile
+```
+
+然后向其中添加如下代码：
+
+```
+export JAVA_HOME=/usr/java/jdk1.8.0_261
+export CLASSPATH=$JAVA_HOME/lib/
+export PATH=$PATH:$JAVA_HOME/bin
+export PATH JAVA_HOME CLASSPATH
+```
+
+<table>
+    <tr>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK解压.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/编辑profile.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/编辑profile.jpg"></center></td>
+    </tr>
+</table>
