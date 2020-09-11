@@ -113,7 +113,7 @@ i
 粘贴后保存：
 ESC->冒号->wq->ENTER
 添加完成后使用source依次执行文件所有语句： 
-source /etc/priofile
+source /etc/profile
 ```
 
 向profile中添加的代码：
@@ -138,3 +138,9 @@ export PATH JAVA_HOME CLASSPATH
 ```
 java -version
 ```
+<table>
+    <tr>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK配置成功.jpg"></center></td>
+    </tr>
+</table>
+
