@@ -149,9 +149,9 @@ java -version
 
 <table>
     <tr>
-        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK配置成功.jpg"></center></td>
-        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK配置成功.jpg"></center></td>
-        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK配置成功.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/yum安装mysql.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/yum安装devel.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/wget和rpm安装mysql-server环境.jpg"></center></td>
     </tr>
 </table>
 
