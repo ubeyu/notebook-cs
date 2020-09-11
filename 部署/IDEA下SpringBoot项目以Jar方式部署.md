@@ -234,16 +234,21 @@ service mysqld restart
 </table>
 
 ```
-重启服务：
+`.重启服务：
 mysql -u root 
-修改密码：
+2.修改密码：
 set password for 'root'@'localhost' =password('password');
-退出MySQL：
+3.退出MySQL：
 exit;
-编辑my.cnf配置文件：
+4.编辑my.cnf配置文件：
 vim /etc/my.cnf
-设置utf-8编码，如图所示：
-default-character-set =utf8
+5.在[mysqld]下添加如下三项：
+//跳过登录验证
+//设置默认字符集UTF-8
+//设置默认字符集UTF-8
+skip-grant-tables   
+character_set_server=utf8   
+init_connect='SET NAMES utf8'  
 ```
 
 #### <MySQL其他相关配置>:
@@ -273,5 +278,4 @@ select version();
 #### 1.配置Tomcat？</br>
 云服务器上的环境配置好像差了一个tomcat？不，因为SpringBoot内置了Tomcat，所以后面我们把它打包成jar包就可以免去Tomcat的配置了（如果是打包成war包，那还是要配置Tomcat的）。</br>
 
-#### 1.配置Tomcat？</br>
-云服务器上的环境配置好像差了一个tomcat？不，因为SpringBoot内置了Tomcat，所以后面我们把它打包成jar包就可以免去Tomcat的配置了（如果是打包成war包，那还是要配置tomcat的）。</br>
+#### 2.上传JAR文件到云服务器根目录：</br>
