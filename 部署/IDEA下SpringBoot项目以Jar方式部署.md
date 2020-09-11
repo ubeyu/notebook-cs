@@ -155,7 +155,7 @@ java -version
     </tr>
 </table>
 
-#### 1.安装MySQL：</br>
+#### 1.安装MySQL环境：</br>
 JDK配置完毕后，开始安装MySQL，使用以下指令依次安装MySQL环境：
 
 ```
@@ -176,3 +176,14 @@ Loading mirror speeds from cached hostfile
 No package mysql-server available.
 Error: Nothing to do
 ```
+
+解决：官网下载安装mysql-server，依次执行下列命令：
+
+```
+wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
+rpm -ivh mysql-community-release-el7-5.noarch.rpm
+yum install mysql-community-server
+```
+成功。
+
+![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/yum安装mysql-service.jpg)
