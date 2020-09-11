@@ -2,10 +2,21 @@
 
 ## 一、IDEA下打包SpringBoot项目到JAR文件并测试：
 
-![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/IDEA创建Jar.png)
 
-#### 1. 在pom.xml下添加如下插件: </br>
-这个插件可以在项目打包成jar包后，通过java -jar运行。如果你的pom.xml文件里面有这句话就不用添加了。
+#### 1. 在pom.xml下添加packaging配置和spring-boot-maven-plugin插件: </br>
+
+<table>
+    <tr>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/pom配置更新1.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/pom配置更新2.jpg"></center></td>
+    </tr>
+</table>
+
+这个插件可以在项目打包成jar包后，通过java -jar运行，如果你的pom.xml文件里面有这句话就不用添加了。
+```
+<!-- 打包成jar包 -->
+<packaging>jar</packaging>
+```
 ```
   <build>
         <plugins>
@@ -16,11 +27,27 @@
         </plugins>
   </build>
 ```
-#### 2. 在IDEA右侧Maven里面打包: </br>
-在IDEA界面右侧 项目名称——>maven——>Lifecycle——>右键package——>Run Maven Build，这个菜单就和DataBase在一起，如果看不见就点击IDEA最左下角的方块图标。</br>
+
+#### 2. 在application.yml下配置项目开发和运行环境: </br>
+
+<table>
+    <tr>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/yml配置更新1.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/yml配置更新2.jpg"></center></td>
+    </tr>
+</table>
+
+将application.yml中 profiles-active-更改为pro配置。
+将application-pro.yml中sever端口号修改为服务器使用端口号，并在后面服务器安全组配置中开启对应端口。
+
+
+#### 3. 在IDEA右侧Maven里面打包: </br>
+配置完毕，在IDEA界面右侧 项目名称——>maven——>Lifecycle——>右键package——>Run Maven Build，这个菜单就和DataBase在一起，如果看不见就点击IDEA最左下角的方块图标。</br>
 点击完后，IDEA下方Run窗口会有一堆信息，里面就包含着jar包的位置，如果信息太多找不到就搜索：Building jar，后面的盘符信息就是jar包的位置了。</br>
 例如：Building jar: D:\IdeaProjects\why_home-master\target\back_end-0.0.1-SNAPSHOT.jar 即指明了JAR位置。</br>
 
+
+![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/IDEA创建Jar.png)
 
 #### <Windows下演示>: </br>
 在CMD命令窗口里运行jar包：
@@ -37,7 +64,7 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
 </table>
 
 ## 二、云服务器安全组配置： </br>
-进入云服务器实例界面，对安全组进行配置，添加SSH(22)协议类型。
+进入云服务器实例界面，对安全组进行配置，添加SSH(22)协议类型，同时将第一步中涉及到的端口号开启。
 <table>
     <tr>
         <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/实例安全组配置1.jpg"></center></td>
@@ -57,6 +84,7 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
 </table>
 
 ## 四、配置Centos，安装rz文件传输工具和JDK：
+
 <table>
     <tr>
         <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/服务器rz文件传输工具安装.jpg"></center></td>
@@ -239,3 +267,11 @@ vi /etc/my.cnf #添加 [mysqld] character_set_server=utf8 init_connect='SET NAME
 8、查看版本
 select version();
 ```
+
+## 六、部署SpringBoot项目：
+
+#### 1.配置Tomcat？</br>
+云服务器上的环境配置好像差了一个tomcat？不，因为SpringBoot内置了Tomcat，所以后面我们把它打包成jar包就可以免去Tomcat的配置了（如果是打包成war包，那还是要配置Tomcat的）。</br>
+
+#### 1.配置Tomcat？</br>
+云服务器上的环境配置好像差了一个tomcat？不，因为SpringBoot内置了Tomcat，所以后面我们把它打包成jar包就可以免去Tomcat的配置了（如果是打包成war包，那还是要配置tomcat的）。</br>
