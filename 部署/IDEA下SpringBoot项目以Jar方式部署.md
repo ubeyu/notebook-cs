@@ -146,3 +146,33 @@ java -version
 
 
 ## 五、配置Centos，安装MySQL数据库：
+
+<table>
+    <tr>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK配置成功.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK配置成功.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK配置成功.jpg"></center></td>
+    </tr>
+</table>
+
+#### 1.安装MySQL：</br>
+JDK配置完毕后，开始安装MySQL，使用以下指令依次安装MySQL环境：
+
+```
+yum install mysql
+yum install mysql-server
+yum install mysql-devel
+```
+
+安装mysql和mysql-devel都成功，安装mysql-server失败，报错信息如下：
+
+```
+[root@yl-web yl]# yum install mysql-server
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.sina.cn
+ * extras: mirrors.sina.cn
+ * updates: mirrors.sina.cn
+No package mysql-server available.
+Error: Nothing to do
+```
