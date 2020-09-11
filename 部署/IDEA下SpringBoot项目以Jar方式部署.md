@@ -108,6 +108,8 @@ tar -zxvf jdk-8u261-linux-x64.tar.gz
 cd /
 cd etc
 vim profile
+开始编辑：i
+粘贴后保存：ESC->冒号->wq->ENTER
 ```
 
 然后向其中添加如下代码：
@@ -123,6 +125,6 @@ export PATH JAVA_HOME CLASSPATH
     <tr>
         <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK解压.jpg"></center></td>
         <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/编辑profile.jpg"></center></td>
-        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/编辑profile.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/Vim添加环境变量.jpg"></center></td>
     </tr>
 </table>
