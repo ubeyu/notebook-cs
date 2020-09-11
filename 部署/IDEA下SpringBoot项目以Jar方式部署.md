@@ -184,6 +184,58 @@ wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
 rpm -ivh mysql-community-release-el7-5.noarch.rpm
 yum install mysql-community-server
 ```
+
 成功。
 
 ![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/yum安装mysql-service.jpg)
+
+安装成功后重启mysql服务。
+
+```
+service mysqld restart
+```
+
+#### 2.配置MySQL环境：</br>
+
+重启服务后，对MySQL环境进行配置：
+<table>
+    <tr>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/MySQL初始化.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/设置utf-8编码.jpg"></center></td>
+    </tr>
+</table>
+
+```
+重启服务：
+mysql -u root 
+修改密码：
+set password for 'root'@'localhost' =password('password');
+退出MySQL：
+exit;
+编辑my.cnf配置文件：
+vim /etc/my.cnf
+设置utf-8编码，如图所示：
+default-character-set =utf8
+```
+
+#### <MySQL其他相关配置>:
+```
+1、设置安全选项：
+mysql_secure_installation
+2、关闭MySQL
+systemctl stop mysqld 
+3、重启MySQL
+systemctl restart mysqld 
+4、查看MySQL运行状态
+systemctl status mysqld 
+5、设置开机启动
+systemctl enable mysqld 
+6、关闭开机启动
+systemctl disable mysqld 
+7、配置默认编码为utf8：
+vi /etc/my.cnf #添加 [mysqld] character_set_server=utf8 init_connect='SET NAMES utf8'
+其他默认配置文件路径： 
+配置文件：/etc/my.cnf 日志文件：/var/log//var/log/mysqld.log 服务启动脚本：/usr/lib/systemd/system/mysqld.service socket文件：/var/run/mysqld/mysqld.pid
+8、查看版本
+select version();
+```
