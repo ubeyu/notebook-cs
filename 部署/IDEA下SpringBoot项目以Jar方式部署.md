@@ -234,7 +234,7 @@ service mysqld restart
 </table>
 
 ```
-`.重启服务：
+1.重启服务：
 mysql -u root 
 2.修改密码：
 set password for 'root'@'localhost' =password('password');
@@ -278,4 +278,8 @@ select version();
 #### 1.配置Tomcat？</br>
 云服务器上的环境配置好像差了一个tomcat？不，因为SpringBoot内置了Tomcat，所以后面我们把它打包成jar包就可以免去Tomcat的配置了（如果是打包成war包，那还是要配置Tomcat的）。</br>
 
-#### 2.上传JAR文件到云服务器根目录：</br>
+#### 2.上传JAR文件到云服务器：</br>
+按照之前新建目录，在服务器下/user/下建立blog目录，cd进blog，rz上传生成的JAR包。
+
+![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/rz上传项目JAR包.jpg)
+
