@@ -119,7 +119,7 @@ source /etc/profile
 向profile中添加的代码：
 
 ```
-export JAVA_HOME=/usr/java/jdk1.8.0_261
+export JAVA_HOME=/user/java/jdk1.8.0_261
 export CLASSPATH=$JAVA_HOME/lib/
 export PATH=$PATH:$JAVA_HOME/bin
 export PATH JAVA_HOME CLASSPATH
@@ -144,3 +144,5 @@ java -version
     </tr>
 </table>
 
+
+## 五、配置Centos，安装MySQL数据库：
