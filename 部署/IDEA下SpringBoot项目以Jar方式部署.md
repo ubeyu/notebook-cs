@@ -249,6 +249,11 @@ vim /etc/my.cnf
 skip-grant-tables   
 character_set_server=utf8   
 init_connect='SET NAMES utf8'  
+6.开放3306端口：
+//zone #作用域
+//add-port=80/tcp #添加端口，格式为：端口/通讯协议
+//permanent #永久生效，没有此参数重启后失效
+firewall-cmd --zone=public --add-port=3306/tcp --permanent
 ```
 
 #### <MySQL其他相关配置>:
@@ -302,6 +307,19 @@ sudo kill -9 26191
 ```
 kill后再次netstat查看端口，可以看到这个端口不再被占用。
 ![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/端口检测和kill.png)
+
+#### 4.运行项目！</br>
+端口检测完成，开启项目吧！
+```
+java -jar back_end-0.0.1-SNAPSHOT.jar
+```
+
+
+
+## <遇到问题>：
+
+#### 1.运行JAR项目时 Exception in thread "main" java.lang.UnsupportedClassVersionError：</br>
+![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/版本不一致问题.jpg)
 
 
 
