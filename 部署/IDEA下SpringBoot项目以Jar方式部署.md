@@ -108,11 +108,15 @@ tar -zxvf jdk-8u261-linux-x64.tar.gz
 cd /
 cd etc
 vim profile
-开始编辑：i
-粘贴后保存：ESC->冒号->wq->ENTER
+开始编辑：
+i
+粘贴后保存：
+ESC->冒号->wq->ENTER
+添加完成后使用source依次执行文件所有语句： 
+source /etc/priofile
 ```
 
-然后向其中添加如下代码：
+向profile中添加的代码：
 
 ```
 export JAVA_HOME=/usr/java/jdk1.8.0_261
@@ -128,3 +132,9 @@ export PATH JAVA_HOME CLASSPATH
         <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/Vim添加环境变量.jpg"></center></td>
     </tr>
 </table>
+
+#### 4.验证JDK安装是否成功：
+
+```
+java -version
+```
