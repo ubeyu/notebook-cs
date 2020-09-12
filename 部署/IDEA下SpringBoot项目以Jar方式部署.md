@@ -256,6 +256,22 @@ init_connect='SET NAMES utf8'
 firewall-cmd --zone=public --add-port=3306/tcp --permanent
 ```
 
+#### 3.数据库创建和管理员数据插入：</br>
+
+进入bin运行：
+```
+mysql -u root -p
+```
+添加指定数据库：
+```
+create database why_home_database; 
+```
+可以先运行一遍使用SpringBoot JPA自动创建表，然后在home_user表存在的基础上插入管理员数据，注意用MD5加密设置密码：
+```
+INSERT INTO home_user (id,avatar, create_time , email, nickname , password, type ,update_time ,username) VALUES (1,' https://images.unsplash.com/photo-1597098495323-fc5d2ac74f75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', '2020-08-22 10:55:55', '363057994@qq.com','winter','password',1, '2020-08-23 20:16:00', 'why');
+```
+
+
 #### <MySQL其他相关配置>:
 ```
 1、设置安全选项
