@@ -484,3 +484,83 @@ home.html修改，加 th:if：
         <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/公网IP访问时Index报错解决2.jpg"></center></td>
     </tr>
 </table>
+
+#### 5.新增分类时 java.sql.SQLException: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_general_ci,COERCIBLE) for operation ‘=’：</br>
+
+<table>
+    <tr>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/管理提交数据时报错.jpg"></center></td>
+    </tr>
+</table>
+
+问题：数据表的编码信息有误，需更改为utf-8。</br>
+通用解决：</br>
+1、修改表的编码
+```
+//ALTER TABLE 表名 CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE why_home_database CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+```
+2、查看表的编码信息
+```
+show variables like 'character_set_%';
+# 正常情况
+character_set_client utf8
+character_set_connection utf8
+character_set_database utf8
+character_set_filesystem binary
+character_set_results utf8
+character_set_server utf8
+character_set_system utf8
+# 如果不相同则使用如下命令修改
+set character_set_client = 'utf8'
+set character_set_connection = 'utf8'
+set character_set_database = 'utf8'
+set character_set_results = 'utf8'
+set character_set_server = 'utf8'
+```
+3、查看collation排序规则
+```
+show variables like 'collation_%';
+# 正常情况
+collation_connection utf8_general_ci
+collation_database utf8_general_ci
+collation_server utf8_general_ci
+# 如果修改则使用如下命令
+set collation_database='utf8_general_ci';
+SET collation_connection = 'utf8_general_ci'; 
+SET collation_server = 'utf8_general_ci'; 
+或
+SET collation_database = 'latin1_swedish_ci'; 
+SET collation_connection = 'latin1_swedish_ci'; 
+SET collation_server = 'latin1_swedish_ci';
+```
+进行修改后可以正常向数据库插入数据。</br>
+针对我的问题解决：
+
+<table>
+    <tr>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/数据表编码修改1.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/数据表编码修改2.jpg"></center></td>
+    </tr>
+</table>
+
+```
+修改表编码：
+//ALTER TABLE 表名 CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE hibernate_sequence CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE home_blog CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE home_blog_tags CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE home_comment CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE home_tag CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE home_type CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE home_user CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+设置表编码：
+set character_set_database = 'utf8'
+set character_set_server = 'utf8'
+```
+成功：
+<table>
+    <tr>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/数据表新增成功.jpg"></center></td>
+    </tr>
+</table>
