@@ -317,9 +317,23 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
 运行成功：（如报错参考下面解决办法）
 ![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/运行成功.jpg)
 
+#### 5.持久后台运行！</br>
 
+上述启动方式是一次启动，当我们关掉Xshell时，网站又无法访问，需重新打开Xshell，执行 
+```
+java -jar back_end-0.0.1-SNAPSHOT.jar
+```
+若要让这个项目在服务器上自动不间断地跑，使用如下指令！
+```
+nohup java -jar  back_end-0.0.1-SNAPSHOT.jar  & 
+```
+同时可使用指令查看日志：
+```
+tail -f nohup.out
+```
+把Xshell关掉，在浏览器上输入http://公网IP:8800 发现项目还是可以进入，设置成功！至此SpringBoot项目部署完结。
 
-</br></br></br></br></br></br></br>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 
 
 ## <遇到问题>：
