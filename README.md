@@ -20,6 +20,7 @@
 ## Web项目部署
 
 * [1.IDEA下以JAR方式部署SpringBoot项目](部署/1.IDEA下SpringBoot项目以Jar方式部署.md)
+* [2.Docker部署SpringBoot项目.md](部署/2.Docker部署SpringBoot项目.md)
 
 ## 服务器
 
