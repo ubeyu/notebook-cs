@@ -424,9 +424,9 @@ validate 项目启动表结构进行校验 如果不一致则报错
     </tr>
 </table>
 
-问题：Web层homepageController逻辑错误。
-解决：
-homepageController修改，加if判断：
+问题：web层HomepageController逻辑错误。</br>
+解决：</br>
+HomepageController修改，加if判断：
 ```
     /*通过Get请求路径 返回首页*/
     @GetMapping("/")
@@ -449,6 +449,15 @@ home.html修改，加 th:if：
         <div class="ui vertical stripe quote segment">
         <div class="ui vertical stripe segment" th:if="${blog_2 != null && blog_3 != null}">
 </div>
+```
+
+同理关于TagClientController和TypeClientController的IndexOutOfBoundsException也做类似修改！
+```
+        List<Tag> tags=tagService.listTagTop(100);
+        /* 判断id为-1 则访问以第一个标签为主题访问标签页 */
+        if(tags.size()>0 && id == -1){
+            id = tags.get(0).getId();
+        }
 ```
 
 <table>
