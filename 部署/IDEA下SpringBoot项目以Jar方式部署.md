@@ -389,3 +389,71 @@ create database why_home_database;
 操作如图所示： </br>
 
 ![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/数据库问题解决.jpg)
+
+#### 3.公网IP访问网页时 org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet：</br>
+
+![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/公网IP访问时报错.jpg)
+
+原因：在pro-yml->jpa->hibernata->ddl-auto设置问题。</br>
+解决：更改为update：
+```
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+```
+说明：
+```
+spring.jpa.hibernate.ddl-auto=create-drop
+
+可选参数:
+create 启动时删数据库中的表，然后创建，退出时不删除数据表
+create-drop 启动时删数据库中的表，然后创建，退出时删除数据表 如果表不存在报错
+update 如果启动时表格式不一致则更新表，原有数据保留
+validate 项目启动表结构进行校验 如果不一致则报错
+```
+![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/公网IP访问时报错解决.jpg)
+
+
+#### 4.公网IP访问网页时 java.lang.IndexOutOfBoundsException: Index: 0, Size: 0：</br>
+
+<table>
+    <tr>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/公网IP访问时Index报错.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/公网IP访问时Index报错问题.jpg"></center></td>
+    </tr>
+</table>
+
+问题：Web层homepageController逻辑错误。
+解决：
+homepageController修改，加if判断：
+```
+    /*通过Get请求路径 返回首页*/
+    @GetMapping("/")
+    public String homepage(Model model) {
+        /* Model存储查询后的分页信息 从而输出给前端页面 进行数据渲染 */
+        /* blogService.listBlog(pageable,blog)返回类似JSON的信息 */
+        List<Blog> blogs=blogService.listBlogTop(3);
+        if(blogs.size() == 3){
+            model.addAttribute("blog_1",blogs.get(0));
+            model.addAttribute("blog_2",blogs.get(1));
+            model.addAttribute("blog_3",blogs.get(2));
+        }
+        return "home";
+    }
+```
+home.html修改，加 th:if：
+```
+<div>
+        <div class="ui vertical stripe segment" th:if="${blog_1 != null}">
+        <div class="ui vertical stripe quote segment">
+        <div class="ui vertical stripe segment" th:if="${blog_2 != null && blog_3 != null}">
+</div>
+```
+
+<table>
+    <tr>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/公网IP访问时Index报错解决1.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/公网IP访问时Index报错解决2.jpg"></center></td>
+    </tr>
+</table>
