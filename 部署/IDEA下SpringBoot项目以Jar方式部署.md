@@ -319,7 +319,7 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
 
 
 
-
+</br></br></br></br></br></br></br>
 
 
 ## <遇到问题>：
@@ -336,16 +336,18 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
 </properties>
 ```
 
-同时在开发环境安装与服务器相同版本的JDK，链接为：https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html 
+同时在开发环境安装与服务器相同版本的JDK，链接为：https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html  </br>
 
 ![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK下载.jpg)
 
-完毕配置系统变量环境，然后在IDEA项目中按照如下方式配置：
-1.Project Struture中添加1.8版本JDK和SDK，且将Project language level换为8；
-2.Java Compiler中Project Bytecode Version改为8。
-详细配置如下图所示：
+完毕配置系统变量环境，然后在IDEA项目中按照如下方式配置：</br>
+1.Project Struture中添加1.8版本JDK和SDK，且将Project language level换为8；</br>
+2.Java Compiler中Project Bytecode Version改为8。</br>
+详细配置如下图所示：</br>
+
 <table>
     <tr>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/版本不一致问题解决.jpg"></center></td>
         <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK配置1.jpg"></center></td>
         <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK配置2.jpg"></center></td>
         <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK配置3.jpg"></center></td>
@@ -355,19 +357,13 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
     </tr>
 </table>
 
-成功：
-
-![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/版本不一致问题解决.jpg)
 
 
 #### 2.运行JAR项目时 java.sql.SQLSyntaxErrorException: Unknown database 'why_home_database'：</br>
 
 ![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/数据库问题.jpg)
 
-
-原因：数据库表未创建。
-
-
+原因：数据库表未创建。</br>
 进入bin运行：
 ```
 mysql -u root -p
@@ -376,6 +372,6 @@ mysql -u root -p
 ```
 create database why_home_database; 
 ```
+操作如图所示： </br>
 
-成功：
 ![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/数据库问题解决.jpg)
