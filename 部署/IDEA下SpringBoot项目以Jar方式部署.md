@@ -314,11 +314,18 @@ kill后再次netstat查看端口，可以看到这个端口不再被占用。
 java -jar back_end-0.0.1-SNAPSHOT.jar
 ```
 
+运行成功：（如报错参考下面解决办法）
+![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/运行成功.jpg)
+
+
+
+
 
 
 ## <遇到问题>：
 
 #### 1.运行JAR项目时 Exception in thread "main" java.lang.UnsupportedClassVersionError：</br>
+
 ![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/版本不一致问题.jpg)
 
 解决：</br>
@@ -329,8 +336,46 @@ java -jar back_end-0.0.1-SNAPSHOT.jar
 </properties>
 ```
 
+同时在开发环境安装与服务器相同版本的JDK，链接为：https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html 
+
+![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK下载.jpg)
+
+完毕配置系统变量环境，然后在IDEA项目中按照如下方式配置：
+1.Project Struture中添加1.8版本JDK和SDK，且将Project language level换为8；
+2.Java Compiler中Project Bytecode Version改为8。
+详细配置如下图所示：
+<table>
+    <tr>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK配置1.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK配置2.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK配置3.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK配置4.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK配置5.jpg"></center></td>
+        <td ><center><img src="../images/1.IDEA下SpringBoot项目以Jar方式部署/JDK配置6.jpg"></center></td>
+    </tr>
+</table>
+
+成功：
+
 ![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/版本不一致问题解决.jpg)
 
 
+#### 2.运行JAR项目时 java.sql.SQLSyntaxErrorException: Unknown database 'why_home_database'：</br>
+
+![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/数据库问题.jpg)
 
 
+原因：数据库表未创建。
+
+
+进入bin运行：
+```
+mysql -u root -p
+```
+添加指定数据库：
+```
+create database why_home_database; 
+```
+
+成功：
+![Image text](../images/1.IDEA下SpringBoot项目以Jar方式部署/数据库问题解决.jpg)
