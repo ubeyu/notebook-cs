@@ -161,3 +161,10 @@ rm -rf /var/log/mysqld.log
 ```
 rm -rf /root/.mysql_sercret
 ```
+
+#### 重新安装时报错：Error: Package: mysql-community-server-8.0.21-1.el8.x86_64 (mysql80-community) Requires: libstdc++.so.6(CXXABI_1.3.11)(64bit)：
+
+需要清理缓存！
+```
+yum clean all
+```
