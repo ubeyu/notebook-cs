@@ -112,3 +112,47 @@ show variables like '%timeout%';#查看超时时间
 show variables like 'log_%'; #查看日志是否启动
 ```
 
+
+
+## 采用yum安装MySQL后，如果想要完全卸载MySQL，可以采用如下方式：
+
+#### 1、查看mysql安装了哪些东西：
+```
+rpm -qa |grep -i mysql
+```
+
+#### 2、开始卸载
+```
+yum remove mysql-community-common-5.7.20-1.el7.x86_64
+yum remove mysql-community-client-5.7.20-1.el7.x86_64
+yum remove mysql57-community-release-el7-11.noarch
+yum remove mysql-community-libs-5.7.20-1.el7.x86_64
+yum removemysql-community-server-5.7.20-1.el7.x86_64
+```
+
+#### 3、查看是否卸载完成
+```
+rpm -qa |grep -i mysql
+```
+
+#### 4、查找mysql相关目录
+```
+find / -name mysql
+```
+
+#### 5、删除相关目录
+```
+rm -rf 查找出来的目录
+```
+
+#### 6、删除/etc/my.cnf
+```
+rm -rf /etc/my.cnf
+```
+
+#### 7、删除/var/log/mysqld.log（如果不删除这个文件，会导致新安装的mysql无法生存新密码，导致无法登陆）
+
+```
+rm -rf /var/log/mysqld.log
+```
+
