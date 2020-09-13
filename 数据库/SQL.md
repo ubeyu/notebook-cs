@@ -156,3 +156,8 @@ rm -rf /etc/my.cnf
 rm -rf /var/log/mysqld.log
 ```
 
+#### 8、删除默认密码
+
+```
+rm -rf /root/.mysql_sercret
+```
