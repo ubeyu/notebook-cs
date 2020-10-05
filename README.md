@@ -9,8 +9,10 @@
 
 ## SpringBoot
 
-* [1.SpringBoot踩坑记录](SpringBoot/1.SpringBoot踩坑.md)
+* [1.SpringBoot-JPA踩坑记录](SpringBoot/1.SpringBoot-JPA踩坑.md)
 * [2.Thymeleaf踩坑记录](SpringBoot/2.Thymeleaf踩坑.md)
+* [3.Redis踩坑.md](SpringBoot/3.Redis踩坑.md)
+* [4.SpringBoot-MyBatis踩坑记录](SpringBoot/4.SpringBoot-MyBatis踩坑.md)
 
 ## Java基础
 
