@@ -26,11 +26,12 @@ mysql -u root -p
 ```
 **删除指定数据库：**
 ```
-drop database why_home_database;	
+drop database why_home_database_jpa;	
+drop database why_home_database_mybatis;
 ```
 **添加指定数据库：**
 ```
-create database why_home_database; 
+create database why_home_database_jpa; 
 ```
 **1.查看所有数据库：**
 ```
