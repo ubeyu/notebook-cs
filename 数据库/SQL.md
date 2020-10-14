@@ -32,6 +32,7 @@ drop database why_home_database_mybatis;
 **添加指定数据库：**
 ```
 create database why_home_database_jpa; 
+create database why_home_database_mybatis; 
 ```
 **1.查看所有数据库：**
 ```
